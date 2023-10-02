@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>Z.TicketBooking</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>AddShowTimeServlet</display-name>
+    <servlet-name>AddShowTimeServlet</servlet-name>
+    <servlet-class>com.admin.AddShowTimeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddShowTimeServlet</servlet-name>
+    <url-pattern>/AddShowTimeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FetchMoviesServlet</display-name>
+    <servlet-name>FetchMoviesServlet</servlet-name>
+    <servlet-class>com.admin.FetchMoviesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchMoviesServlet</servlet-name>
+    <url-pattern>/FetchMoviesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FetchTheatersServlet</display-name>
+    <servlet-name>FetchTheatersServlet</servlet-name>
+    <servlet-class>com.admin.FetchTheatersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchTheatersServlet</servlet-name>
+    <url-pattern>/FetchTheatersServlet</url-pattern>
+  </servlet-mapping>
+</web-app>

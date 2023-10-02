@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Payment Page</title>
+	<!-- Add any additional CSS or styling as needed -->
+
+	<!-- Include Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">FilmyGeek</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link" href="index.jsp">Home
+						<span class="sr-only">(current)</span>
+					</a></li>
+				<li class="nav-item"><a class="nav-link" href="contact.jsp">Contact Us</a></li>
+			</ul>
+			
+			<!--
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+			</form>
+			<div class="mx-2">
+				<button class="btn btn-danger" data-toggle="modal" data-target="#loginModal">Login</button>
+				<button class="btn btn-danger" data-toggle="modal" data-target="#signupModal">SignUp</button>
+			</div> -->
+		</div>
+	</nav>
+
+	<div class="container mt-4">
+		<h1 class="mb-4">Payment Details</h1>
+
+		<!-- Display number of tickets and total price -->
+		<div class="alert alert-info" role="alert">
+			Number of Tickets: <span id="selected-seats-count">0</span><br>
+			Total Price: ₹<span id="total-price">0</span>
+		</div>
+
+
+		<!-- Payment options -->
+		<h3>Select Payment Method:</h3>
+
+		<!-- Credit Card details -->
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="creditCard">
+			<label class="form-check-label" for="creditCard">
+				Credit Card
+			</label>
+			<div class="mt-3" id="paymentDetails">
+
+				<div id="creditCardDetails" style="display: none;">
+					<h4>Credit Card Details:</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="cardNumber">Card Number:</label>
+								<input type="text" class="form-control" id="cardNumber">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="cardHolder">Card Holder Name:</label>
+								<input type="text" class="form-control" id="cardHolder">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="expiryDate">Expiry Date:</label>
+								<input type="text" class="form-control" id="expiryDate">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="cvv">CVV:</label>
+								<input type="text" class="form-control" id="cvv">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Debit Card details -->
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="paymentMethod" id="debitCard" value="debitCard">
+			<label class="form-check-label" for="debitCard">
+				Debit Card
+			</label>
+
+			<div class="mt-3" id="paymentDetails">
+				<div id="debitCardDetails" style="display: none;">
+					<h4>Debit Card Details:</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="debitCardNumber">Card Number:</label>
+								<input type="text" class="form-control" id="debitCardNumber">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="debitCardHolder">Card Holder Name:</label>
+								<input type="text" class="form-control" id="debitCardHolder">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="debitExpiryDate">Expiry Date:</label>
+								<input type="text" class="form-control" id="debitExpiryDate">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="debitCVV">CVV:</label>
+								<input type="text" class="form-control" id="debitCVV">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Paytm details -->
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="paymentMethod" id="paytm" value="paytm">
+			<label class="form-check-label" for="paytm">
+				Paytm
+			</label>
+			<div class="mt-3" id="paymentDetails">
+				<div id="paytmDetails" style="display: none;">
+					<h4>Paytm Details:</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="phoneNumPaytm">Phone Number:</label>
+								<input type="text" class="form-control" id="phoneNumPaytm">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Phone Pe details -->
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="paymentMethod" id="phonePe" value="phonePe">
+			<label class="form-check-label" for="phonePe">
+				PhonePe
+			</label>
+			<div class="mt-3" id="paymentDetails">
+				<div id="phonePeDetails" style="display: none;">
+					<h4>PhonePe Details:</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="phoneNumPhonePe">Phone Number:</label>
+								<input type="text" class="form-control" id="phoneNumPhonePe">
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="form-check">
+			<input class="form-check-input" type="radio" name="paymentMethod" id="upi" value="upi">
+			<label class="form-check-label" for="upi">
+				UPI
+			</label>
+
+			<div class="mt-3" id="paymentDetails">
+				<!-- UPI details -->
+				<div id="upiDetails" style="display: none;">
+					<h4>UPI Details:</h4>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label for="upiId">UPI ID:</label>
+								<input type="text" class="form-control" id="upiId">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- Button to confirm and permanently store selected seats -->
+		<button id="confirm-selection-button" class="btn btn-danger mt-3">Proceed</button>
+	</div><br/>
+	<!-- Footer -->
+
+	<footer class="py-5 text-center text-body-secondary bg-body-tertiary bg-dark text-white">
+		<p>
+			FilmyGeek <a href=""></a> by <a href="">@Coding Hustlers</a>.
+		</p>
+		<p class="mb-0">
+			<a href="#">Back to top</a>
+		</p>
+	</footer>
+
+	<!-- Include Bootstrap JavaScript and jQuery (place these just before </body>) -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			// Retrieve URL parameters to get selected seats and total price
+			var urlParams = new URLSearchParams(window.location.search);
+			var selectedSeats = urlParams.get("seats");
+			var totalPrice = urlParams.get("total");
+
+			// Display selected seats count
+			var selectedSeatsCount = 0;
+			if (selectedSeats) {
+				var seatsArray = selectedSeats.split(",");
+				selectedSeatsCount = seatsArray.length;
+			}
+
+			// Display selected seats count and total price
+			$('#selected-seats-count').text(selectedSeatsCount);
+			$('#total-price').text(totalPrice);
+
+			// Handle confirmation to permanently store selected seats
+			$('#confirm-selection-button').click(function () {
+				// Retrieve any previously permanently stored seats
+				var bookedSeats = JSON.parse(localStorage.getItem('booked')) || [];
+
+				// Retrieve selected seats from URL parameters
+				if (selectedSeats) {
+					var seatsArray = selectedSeats.split(",");
+					$.each(seatsArray, function (index, seat) {
+						bookedSeats.push(seat);
+					});
+				}
+
+				// Store the combined list of selected seats permanently
+				localStorage.setItem('booked', JSON.stringify(bookedSeats));
+				//alert('Booked Successfully')
+
+				// Redirect to a thank you or completion page if needed
+				window.location.href = "thankyou.html";
+			});
+		});
+		// JavaScript code to toggle payment details based on selected payment method
+
+		$(document).ready(function () {
+			$('input[type="radio"][name="paymentMethod"]').change(function () {
+				// Hide all payment details divs
+				$('#paymentDetails > div').hide();
+
+				// Show the selected payment details div
+				$('#' + $(this).val() + 'Details').show();
+			});
+		});
+
+	</script>
+</body>
+
+</html>
